@@ -1,7 +1,12 @@
-<html>
-<head><title>301 Moved Permanently</title></head>
-<body>
-<center><h1>301 Moved Permanently</h1></center>
-<hr><center>cloudflare</center>
-</body>
-</html>
+name: Miller-maps- CI Workflow
+on: [push, pull_request]
+jobs:
+  run-miller-maps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - run: python3 main.py
+      - run: ls -lh
