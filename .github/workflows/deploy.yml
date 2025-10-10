@@ -16,7 +16,7 @@ jobs:
           python-version: "3.11"
       - name: Run Miller-maps process
         run: python3 main.py
-      - name: Create deployment
+      - name: Build public directory
         run: |
           mkdir -p public
           echo "<html><body><h1>Miller-maps- Live!</h1><p>Last updated: $(date)</p></body></html>" > public/index.html
