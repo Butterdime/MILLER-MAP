@@ -3,11 +3,8 @@ on:
   push:
     branches: [ main ]
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     steps:
       - uses: actions/checkout@v4
       - name: Setup Python
@@ -20,11 +17,9 @@ jobs:
         run: |
           mkdir -p public
           echo "<html><body><h1>Miller-maps- Live!</h1><p>Last updated: $(date)</p></body></html>" > public/index.html
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
