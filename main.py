@@ -10,7 +10,9 @@ import datetime
 
 def create_map_html():
     """Generate the main map interface HTML"""
-    html_content = """
+    build_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
+    
+    html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,29 +20,29 @@ def create_map_html():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miller Maps - Interactive Historical Map Builder</title>
     <style>
-        body {
+        body {{
             font-family: 'Courier New', monospace;
             margin: 0;
             padding: 20px;
             background: linear-gradient(135deg, #2c1810 0%, #8B4513 100%);
             color: #f5f5dc;
             min-height: 100vh;
-        }
-        .container {
+        }}
+        .container {{
             max-width: 1200px;
             margin: 0 auto;
             background: rgba(0,0,0,0.8);
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
-        h1 {
+        }}
+        h1 {{
             color: #DAA520;
             text-align: center;
             font-size: 2.5em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-        .map-placeholder {
+        }}
+        .map-placeholder {{
             width: 100%;
             height: 500px;
             background: #1a1a1a;
@@ -51,30 +53,30 @@ def create_map_html():
             justify-content: center;
             margin: 20px 0;
             position: relative;
-        }
-        .controls {
+        }}
+        .controls {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin: 20px 0;
-        }
-        .control-panel {
+        }}
+        .control-panel {{
             background: rgba(218, 165, 32, 0.1);
             border: 1px solid #DAA520;
             border-radius: 5px;
             padding: 15px;
-        }
-        .status {
+        }}
+        .status {{
             text-align: center;
             margin: 20px 0;
             padding: 10px;
             background: rgba(0, 100, 0, 0.2);
             border-radius: 5px;
-        }
-        .deployment-info {
+        }}
+        .deployment-info {{
             font-size: 0.9em;
             opacity: 0.8;
-        }
+        }}
     </style>
 </head>
 <body>
@@ -124,7 +126,7 @@ def create_map_html():
     </div>
 </body>
 </html>
-    """.format(build_time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC"))
+    """
     
     return html_content
 
