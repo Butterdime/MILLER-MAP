@@ -1,0 +1,11 @@
+#!/bin/bash
+# Save as: create_space_instructions_json.sh
+
+TARGET_PATH="/Users/puvansivanasan/Documents/APP BUILDING/MILLER_MAPS_PROJECT/miller_maps_space_instructions.json"
+
+echo "Paste your JSON space instructions content below. When done, press Ctrl+D (on a blank line) to save and finish:"
+
+cat > "$TARGET_PATH"
+
+echo "✅ JSON file created at:"
+ls -lh "$TARGET_PATH"
