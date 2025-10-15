@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch:   # Enables manual dispatch
 
 permissions:
   contents: read
